@@ -4,7 +4,18 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [data, setData] = useState(null);
+
+  const fetchData = () => {
+    fetch('/api/data')
+      .then(response => response.json())
+      .then(fetchedData => setData(fetchedData))
+      .catch(error => console.error('error during get data', error));
+  }
+
+  const handleButtonClick = () => {
+    fetchData();
+  }
 
   return (
     <>
@@ -18,8 +29,8 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <button onClick={handleButtonClick}>
+          {data}
         </button>
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
