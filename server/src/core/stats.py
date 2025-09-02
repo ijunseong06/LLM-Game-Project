@@ -11,8 +11,3 @@ class Stats:
 
     def reset_stats(self):
         self.stats = {key : 0 for key in statsKeysList}
-
-    def to_dict(self):
-        return {
-            
-        }
