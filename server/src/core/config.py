@@ -1,0 +1,1 @@
+statsKeysList = {"HP", "MP", "Strength", "Dexterity", "Intelligence"}
