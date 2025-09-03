@@ -4,7 +4,7 @@ from src.llm.item_generater import *
 
 app = Flask(__name__)
 
-@app.route('/api/data', methods=['SET'])
+@app.route('/api/data', methods=['GET'])
 async def set_data():
     return generate_item()
 
