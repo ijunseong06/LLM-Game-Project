@@ -2,12 +2,12 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<string | null>(null);
 
   const fetchData = () => {
-    fetch('/api/data')
+    fetch('http://localhost:8000/api/data')
       .then(response => response.json())
-      .then(fetchedData => setData(fetchedData))
+      .then(fetchedData => setData(JSON.stringify(fetchedData, null, 2)))
       .catch(error => console.error('error during get data', error));
   }
 
@@ -20,10 +20,9 @@ function App() {
       <h1>LLM Game Project</h1>
       <div className="card">
         <button onClick={handleButtonClick}>
-          {data}
         </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          {data}
         </p>
       </div>
       <p className="read-the-docs">

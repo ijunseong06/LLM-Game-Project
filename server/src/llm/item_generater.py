@@ -6,6 +6,7 @@ client = genai.Client()
 
 async def generate_item():
     response = await client.aio.models.generate_content(
-        model="gemini-2.5-flash", contents=f"Create An Item. Return in dict. Item object has name, descritpion, stats. Keys of item stats : {statsKeysList}"
+        model="gemini-2.5-flash", contents=f"Create an item object in pure JSON format, without any markdown or code blocks. Do not include escape characters. The JSON object should have three keys: 'name' (string), 'description' (string), and 'stats' (object). The 'stats' object should have the following keys: {statsKeysList}. Do not include any extra text, explanations, or code."
     )
-    return response
+    response_text = response.text.replace('\\"', '"')
+    return response_text
