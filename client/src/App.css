@@ -41,6 +41,52 @@
   color: #888;
 }
 
-.textbox {
-  color: gray;
+.api-key-button {
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.tooltip-container {
+  position: absolute;
+  top: 20px; /* 상단에서의 위치 */
+  right: 20px; /* 우측에서의 위치 */
+  display: inline-block;
+}
+
+.tooltip-container .tooltip-text {
+  visibility: hidden;
+  width: 160px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* 버튼 위에 위치하도록 설정 */
+  left: 50%;
+  margin-left: -80px; /* 중앙 정렬을 위한 조정 */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltip-container .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
 }

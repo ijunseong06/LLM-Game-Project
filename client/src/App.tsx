@@ -21,6 +21,10 @@ function App() {
       <div className="card">
         <button onClick={handleButtonClick}>
         </button>
+        <div className="tooltip-container">
+          <button className="api-key-button">API Key</button>
+          <span className="tooltip-text">Set Gemini API Key</span>
+        </div>
         <p>
           {data}
         </p>
