@@ -1,0 +1,24 @@
+{
+  "name": "llm-game-project",
+  "version": "1.0.0",
+  "description": "Gemini API 사용한 개인 프로젝트",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix ./client \" \"python ./server/app.py\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ijunseong06/LLM-Game-Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ijunseong06/LLM-Game-Project/issues"
+  },
+  "homepage": "https://github.com/ijunseong06/LLM-Game-Project#readme",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
