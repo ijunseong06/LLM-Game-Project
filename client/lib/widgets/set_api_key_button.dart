@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:client/l10n/app_localizations.dart';
 
 class SetApiKeyButton extends StatelessWidget {
 	const SetApiKeyButton({super.key});
@@ -17,7 +18,7 @@ class SetApiKeyButton extends StatelessWidget {
 					child: SizedBox(
 						width: 150,
 						height: 50,
-						child: ElevatedButton(style: style, onPressed: () {}, child: const Text('Set API Key'),),
+						child: ElevatedButton(style: style, onPressed: () {}, child: Text(AppLocalizations.of(context)!.setApiKey),),
 					),
 				),
 			],

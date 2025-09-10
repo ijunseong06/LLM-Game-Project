@@ -1,0 +1,13 @@
+{
+    "@@locale": "en",
+    "setApiKey": "Set API Key",
+    "@setApiKey": {},
+    "attribute": "Attribute",
+    "@attribute": {},
+    "str": "Str",
+    "@str": {},
+    "dex": "Dex",
+    "@dex": {},
+    "int": "Int",
+    "@int": {}
+}

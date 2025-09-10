@@ -1,3 +1,8 @@
 __pycache__/
 *.pyc
 config.json
+
+#Flutter Localization Files
+app_localizations.dart
+app_localizations_en.dart
+app_localizations_ko.dart
