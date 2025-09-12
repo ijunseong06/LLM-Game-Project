@@ -28,14 +28,15 @@ class MainMenuScreen extends StatelessWidget {
         ),
       ),
       body: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
+                    Align(
+            alignment: Alignment.bottomRight,
+            child: SetApiKeyButton(),
+          ),
           Align(
             alignment: Alignment.bottomLeft,
             child: CreateNewSessionButton(),
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: SetApiKeyButton(),
           )
         ],
       ),

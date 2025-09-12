@@ -18,7 +18,11 @@ class SetApiKeyButton extends StatelessWidget {
 					child: SizedBox(
 						width: 150,
 						height: 50,
-						child: ElevatedButton(style: style, onPressed: () {}, child: Text(AppLocalizations.of(context)!.setApiKey),),
+						child: ElevatedButton(
+              style: style,
+              onPressed: () {},
+              child: Text(AppLocalizations.of(context)!.setApiKey),
+            ),
 					),
 				),
 			],

@@ -8,12 +8,13 @@ class CreateNewSessionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 3, 5),
           child: IconButton(
             icon: SvgPicture.asset('assets/icons/Add.svg', width: 30, height: 30,),
+            hoverColor: Colors.blueAccent,
             onPressed: () {},
           ),
         ),
