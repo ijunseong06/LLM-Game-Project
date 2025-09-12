@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/set_api_key_button.dart';
+import '../widgets/create_new_session_button.dart';
 
 class MainMenuScreen extends StatelessWidget {
 	const MainMenuScreen({super.key});
@@ -26,8 +27,17 @@ class MainMenuScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: SizedBox.expand(
-        child: SetApiKeyButton(),
+      body: Row(
+        children: <Widget>[
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: CreateNewSessionButton(),
+          ),
+          Align(
+            alignment: Alignment.bottomRight,
+            child: SetApiKeyButton(),
+          )
+        ],
       ),
       backgroundColor: Color.fromARGB(255, 26, 26, 26),
     );

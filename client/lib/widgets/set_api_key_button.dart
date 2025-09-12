@@ -14,7 +14,7 @@ class SetApiKeyButton extends StatelessWidget {
 			crossAxisAlignment: CrossAxisAlignment.end,
 			children: <Widget>[
 				Padding(
-					padding: const EdgeInsets.fromLTRB(0, 0, 3, 5),
+					padding: const EdgeInsets.fromLTRB(3, 0, 0, 5),
 					child: SizedBox(
 						width: 150,
 						height: 50,
