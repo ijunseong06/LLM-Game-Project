@@ -1,8 +1,11 @@
 __pycache__/
 *.pyc
-config.json
+/server/config.json
 
 #Flutter Localization Files
 app_localizations.dart
 app_localizations_en.dart
 app_localizations_ko.dart
+
+#Game Save Folder
+/saves/

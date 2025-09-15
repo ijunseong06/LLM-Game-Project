@@ -1,3 +1,4 @@
-import os
+from pathlib import Path
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+BASE_PATH = Path.cwd() / 'server'
+SAVE_PATH = Path.cwd() / 'saves'

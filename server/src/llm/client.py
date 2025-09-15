@@ -1,6 +1,6 @@
 from google import genai
 
-from ..util import config_loader
+from ..utils import config_loader
 
 client : genai.Client = None
 

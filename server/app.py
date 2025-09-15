@@ -4,6 +4,7 @@ from google import genai
 import json
 import uvicorn
 
+from src.core.session import *
 from src.llm.item_generater import *
 import src.llm.client as client
 
@@ -26,6 +27,7 @@ async def create_item():
         return {"error": "Response of AI is not valid JSON format"}
     except Exception as e:
         return {"error": str(e)}
+
 
 client.init_client()
 
