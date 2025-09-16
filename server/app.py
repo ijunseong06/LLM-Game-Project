@@ -4,11 +4,12 @@ from google import genai
 import json
 import uvicorn
 
+from src.api import gameSession
 from src.core.session import *
 from src.llm.item_generater import *
 import src.llm.client as client
 
-app = FastAPI()
+app = FastAPI(gameSession)
 
 app.add_middleware(
     CORSMiddleware,

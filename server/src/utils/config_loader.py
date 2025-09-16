@@ -18,6 +18,6 @@ def load_config():
         with open(paths.BASE_PATH / 'config.json', 'r', encoding='utf-8') as f:
             config = json.load(f)
             return config
-    except Exception as e:
+    except Exception:
         print("error occured on load config.json.")
         return initial_config
