@@ -1,5 +1,6 @@
 from pydantic import BaseModel
+from typing import Optional
 
 class Session(BaseModel):
-    name : str
-    description : str
+    name : Optional[str] = None
+    description : Optional[str] = None

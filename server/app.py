@@ -1,15 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from google import genai
 import json
 import uvicorn
 
-from src.api import gameSession
+from server.src.api import game_session
 from src.core.session import *
 from src.llm.item_generater import *
 import src.llm.client as client
 
-app = FastAPI(gameSession)
+app = FastAPI()
+app.include_router(game_session)
 
 app.add_middleware(
     CORSMiddleware,

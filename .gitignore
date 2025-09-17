@@ -9,3 +9,6 @@ app_localizations_ko.dart
 
 #Game Save Folder
 /saves/
+
+#Backend Test Code
+/server/tests/

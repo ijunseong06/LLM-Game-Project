@@ -1,4 +1,4 @@
 from pathlib import Path
 
-BASE_PATH = Path.cwd() / 'server'
-SAVE_PATH = Path.cwd() / 'saves'
+BASE_PATH = Path.cwd()
+SAVE_PATH = Path.cwd().parent / 'saves'
