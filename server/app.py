@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import json
 import uvicorn
 
-from server.src.api import game_session
+from src.api import game_session
 from src.core.session import *
 from src.llm.item_generater import *
 import src.llm.client as client

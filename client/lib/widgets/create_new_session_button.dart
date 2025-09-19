@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:client/services/overlay_manager.dart';
 
 class CreateNewSessionButton extends StatelessWidget {
   const CreateNewSessionButton({super.key});
@@ -15,7 +16,7 @@ class CreateNewSessionButton extends StatelessWidget {
           child: IconButton(
             icon: SvgPicture.asset('assets/icons/Add.svg', width: 30, height: 30,),
             hoverColor: Colors.blueAccent,
-            onPressed: () {},
+            onPressed: () {showOverlay(getCreateSessionOverlay());},
           ),
         ),
       ],

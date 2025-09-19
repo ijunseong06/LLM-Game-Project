@@ -12,7 +12,9 @@ class CreateSessionOverlay extends StatelessWidget{
           bottom: 10,
           left: 10,
           right: 10,
-          child: Container(),
+          child: Container(
+            color: Colors.blueGrey,
+          ),
         )
       ],
     );

@@ -1,3 +1,5 @@
+import 'package:client/services/overlay_manager.dart';
+import 'package:client/widgets/create_new_session_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -27,17 +29,22 @@ class MainMenuScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-                    Align(
-            alignment: Alignment.bottomRight,
-            child: SetApiKeyButton(),
+      body: Stack(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Align(
+                alignment: Alignment.bottomRight,
+                child: SetApiKeyButton(),
+              ),
+              Align(
+                alignment: Alignment.bottomLeft,
+                child: CreateNewSessionButton(), 
+              ),
+            ],
           ),
-          Align(
-            alignment: Alignment.bottomLeft,
-            child: CreateNewSessionButton(),
-          )
+          CreateNewSessionWidget(manager: getCreateSessionOverlay())
         ],
       ),
       backgroundColor: Color.fromARGB(255, 26, 26, 26),
