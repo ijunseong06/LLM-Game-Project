@@ -11,6 +11,12 @@ router = APIRouter()
 def get_current_session(session : Session = Depends(get_session)):
     return session
 
+@router.post('/create')
+def create_session(name : str, desc : str, session : Session = Depends(get_session), repo : SessionRepository = Depends(get_session_repo)):
+    repo.reset_session(session)
+    session.name = name
+    session.description = desc
+
 @router.post('/save')
 def save_session(session : Session = Depends(get_session), repo : SessionRepository = Depends(get_session_repo)):
     repo.save_session(session)

@@ -9,5 +9,11 @@
     "dex": "Dex",
     "@dex": {},
     "int": "Int",
-    "@int": {}
+    "@int": {},
+    "createSessionOverlay_header": "Create Session",
+    "@createSessionOverlay_header": {},
+    "createSessionOverlay_inputField_sessionName": "Session Name",
+    "@createSessionOverlay_inputField_sessionName": {},
+    "createSessionOverlay_inputField_sessionDesc": "Session Descritpion",
+    "@createSessionOverlay_inputField_sessionDesc": {}
 }

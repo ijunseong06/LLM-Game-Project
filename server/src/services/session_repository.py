@@ -8,6 +8,10 @@ class SessionRepository:
     def __init__(self):
         self.save_directory = paths.SAVE_PATH
 
+    def reset_session(self, session : Session):
+        session.name = ''
+        session.description = ''
+
     def save_session(self, session : Session):
         if not (Path.exists(self.save_directory)):
             self.save_directory.mkdir()

@@ -9,7 +9,7 @@ from src.llm.item_generater import *
 import src.llm.client as client
 
 app = FastAPI()
-app.include_router(game_session)
+app.include_router(game_session.router)
 
 app.add_middleware(
     CORSMiddleware,
@@ -18,17 +18,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
-
-@app.get('/api/data')
-async def create_item():
-    try:
-        item_text = await generate_item()
-        return json.loads(item_text)
-    except json.JSONDecodeError:
-        return {"error": "Response of AI is not valid JSON format"}
-    except Exception as e:
-        return {"error": str(e)}
-
 
 client.init_client()
 
