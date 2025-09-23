@@ -4,7 +4,7 @@ import MainView from '../views/MainView';
 const routes = [
     {
         path: '/',
-        name: 'home',
+        name: 'main',
         component: MainView
     },
 ]
