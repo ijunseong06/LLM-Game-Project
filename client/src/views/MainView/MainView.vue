@@ -1,18 +1,25 @@
-<script>
-import AddButton from './components/AddButton.vue';
+<script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import AddButton from '@/components/AddButton.vue';
+import CreateSessionOverlay from '@/components/overlays/CreateSessionOverlay.vue';
 
-export default {
-  components: {
-    AddButton,
-  }
-}
+const router = useRouter()
+const isCreateSessionOverlayVisible = ref(false);
 </script>
 
 <template>
-  <div style="position: relative">
-    <h1 class="main-menu-header">LLM Game project</h1>
-    <add-button class="add-button"></add-button>
-  </div>
+  <v-app-bar app>
+    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    <v-toolbar-title>LLM Game project</v-toolbar-title>
+    <v-spacer></v-spacer>
+  </v-app-bar>
+  <v-main>
+    <add-button class="add-button" @click="isCreateSessionOverlayVisible = true"></add-button>
+  </v-main>
+  <v-overlay v-model="isCreateSessionOverlayVisible" class="overlay-style">
+    <create-session-overlay @close-overlay="isCreateSessionOverlayVisible = false"></create-session-overlay>
+  </v-overlay>
 </template>
 
 <style>
@@ -20,14 +27,10 @@ export default {
   padding: 0;
   margin: 0;
 }
-body {
-  background-color: rgb(24, 24, 24);
-  margin: 0;
-  padding: 0%;
-}
-.main-menu-header {
-  text-align: center;
-  color: white;
+.overlay-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .add-button {
   position: fixed;

@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import MainView from '../views/MainView';
+import MainView from '@/views/MainView/MainView.vue';
+import GameSessionView from '@/views/GameSessionView/GameSessionView.vue';
 
 const routes = [
     {
@@ -7,10 +8,15 @@ const routes = [
         name: 'main',
         component: MainView
     },
+    {
+        path: '/:session',
+        name: 'GameSession',
+        component: GameSessionView
+    }
 ]
 
 const router = createRouter({
-    history: createWebHistory(process.env.BASE_URL),
+    history: createWebHistory(import.meta.env.BASE_URL),
     routes
 })
 

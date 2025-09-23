@@ -9,7 +9,7 @@ from src.llm.item_generater import *
 import src.llm.client as client
 
 app = FastAPI()
-app.include_router(game_session.router)
+app.include_router(game_session.router, prefix="/session")
 
 app.add_middleware(
     CORSMiddleware,

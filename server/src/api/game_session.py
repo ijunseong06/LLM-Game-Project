@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends
 
-import paths
 from src.core.dependencies import get_session, get_session_repo
 from src.core.session import Session
 from src.services.session_repository import SessionRepository
@@ -16,6 +15,7 @@ def create_session(name : str, desc : str, session : Session = Depends(get_sessi
     repo.reset_session(session)
     session.name = name
     session.description = desc
+    return {"name" : session.name, "description": session.description}
 
 @router.post('/save')
 def save_session(session : Session = Depends(get_session), repo : SessionRepository = Depends(get_session_repo)):

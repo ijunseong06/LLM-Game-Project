@@ -1,15 +1,16 @@
-import Vue from "vue";
-import VueI18n from "vue-i18n";
+import { createI18n } from "vue-i18n";
+import ko from '@/locales/ko.json';
+import en from '@/locales/en.json';
 
-Vue.use(VueI18n)
-
-function loadMessages() {
-    const context = require.context('@/locales', true, /\.json$/)
+const messages = {
+    ko,
+    en
 }
-const options = {
+
+const i18n = createI18n({
     locale: 'ko',
     fallbackLocale: 'en',
-    messages,
-};
+    messages: messages,
+});
 
-export default new VueI18n(options);
+export default i18n;
