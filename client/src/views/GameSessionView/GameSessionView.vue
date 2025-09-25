@@ -22,4 +22,9 @@ onMounted(async () => {
     <v-app-bar-nav-icon></v-app-bar-nav-icon>
     <v-app-bar-title>{{ sessionName }}</v-app-bar-title>
   </v-app-bar>
+  <v-main class="d-flex flex-column">
+    <v-container>
+      <v-text-field :placeholder="$t('inGameInputField')" class="input-field"></v-text-field>
+    </v-container>
+  </v-main>
 </template>

@@ -2,5 +2,6 @@
     "createSession": "Create Session",
     "createSessionNamePlaceholder": "Session Name",
     "createSessionDescPlaceholder": "Description of session",
-    "createSessionConfirmButton": "Confirm"
+    "createSessionConfirmButton": "Confirm",
+    "inGameInputField": "Next action"
 }
