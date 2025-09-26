@@ -5,8 +5,13 @@ import axios from "axios";
 const session = ref({})
 const sessionName = ref('');
 
+const inputMessage = ref('');
+const outputMessage = ref('');
+
 const confirmInput = async () => {
-  const response = await axios.get('http://localhost:8000')
+  inputMessage.value = '';
+  const response = await axios.get('http://localhost:8000/llm/response/generate');
+  outputMessage.value = response.data['response'];
 }
 
 onMounted(async () => {
@@ -28,11 +33,10 @@ onMounted(async () => {
   </v-app-bar>
   <v-main class="d-flex flex-column">
     <v-container class="flex-grow-1 pa-4 d-flex flex-column">
-      <v-textarea variant="plain" class="scrollable-textarea flex-grow-1" hide-details style="overflow-y: auto;" readonly></v-textarea>
+      <v-textarea variant="plain" class="scrollable-textarea flex-grow-1" hide-details style="overflow-y: auto;" readonly v-model="outputMessage"></v-textarea>
     </v-container>
     <v-container class="flex-shrink-0">
-      <v-textarea :placeholder="$t('inGameInputField')" variant="outlined" auto-grow rows="1" @keydown.ctrl.enter.prevent="console.log('test')">
-      </v-textarea>
+      <v-textarea :placeholder="$t('inGameInputField')" variant="outlined" auto-grow rows="1" @keydown.ctrl.enter.prevent="confirmInput" v-model="inputMessage"></v-textarea>
     </v-container>
   </v-main>
 </template>

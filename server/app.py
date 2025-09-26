@@ -1,15 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-import json
 import uvicorn
 
-from src.api import game_session
-from src.core.session import *
-from src.llm.item_generater import *
-import src.llm.client as client
+from src.api import game_session, llm
 
 app = FastAPI()
 app.include_router(game_session.router, prefix="/session")
+app.include_router(llm.router, prefix="/llm")
 
 app.add_middleware(
     CORSMiddleware,
@@ -18,8 +15,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
-
-client.init_client()
 
 if __name__ == '__main__':
     uvicorn.run(app, host="0.0.0.0", port=8000)
