@@ -1,5 +1,5 @@
-from . import client
-from ..core.config import *
+from src.llm import client
+from src.core.config import *
 
 async def generate_item():
     response = await client.get_client().aio.models.generate_content(

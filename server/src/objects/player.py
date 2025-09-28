@@ -1,7 +1,7 @@
-from core.inventory import *
-from core.stats import *
+from src.core.inventory import *
+from src.core.stats import *
 
-from objects.entity import *
+from src.objects.entity import *
 
 class Player(Entity):
     stats : Stats = Stats()

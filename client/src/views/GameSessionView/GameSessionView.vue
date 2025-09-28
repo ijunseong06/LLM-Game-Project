@@ -2,7 +2,6 @@
 import { onMounted, ref } from "vue";
 import axios from "axios";
 
-const session = ref({})
 const sessionName = ref('');
 
 const inputMessage = ref('');
@@ -10,15 +9,26 @@ const outputMessage = ref('');
 
 const confirmInput = async () => {
   inputMessage.value = '';
-  const response = await axios.get('http://localhost:8000/llm/response/generate');
+  const response = await axios.post('http://localhost:8000/llm/response/generate');
   outputMessage.value = response.data['response'];
+  saveSession();
+}
+
+const saveSession = async () => {
+  await axios.post('http://localhost:8000/session/save', null, {
+    params: {
+      name: sessionName.value,
+      description: localStorage.getItem('sessionDesc')
+    }
+  });
 }
 
 onMounted(async () => {
   try {
+    sessionName.value = localStorage.getItem('sessionName');
+    
     const response = await axios.get('http://localhost:8000/session/get');
-    session.value = response.data;
-    sessionName.value = session.value['name'];
+    outputMessage.value = response.data['history'];
   }
   catch (error) {
     console.error("Failed to fetch session data:", error);

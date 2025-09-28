@@ -7,16 +7,13 @@ const sessionName = ref('');
 const sessionDesc = ref('');
 
 const createSession = async () => {
-    const response = await axios.post('http://localhost:8000/session/create', null, {
-        params: {
-            name: sessionName.value,
-            desc: sessionDesc.value
-        }
-    });
+    const response = await axios.post('http://localhost:8000/session/init');
     console.log('세션 생성 성공:', response.data)
 }
 
 function accessSession(path) {
+    localStorage.setItem('sessionName', sessionName.value);
+    localStorage.setItem('sessionDesc', sessionDesc.value);
     router.push({
         name: 'GameSession',
         params: { session : path }

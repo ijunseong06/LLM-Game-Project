@@ -1,6 +1,6 @@
 from pydantic import BaseModel, Field
 
-from core.config import *
+from src.core.config import *
 
 class Stats(BaseModel):
     stats : dict[str, int | float] = Field(

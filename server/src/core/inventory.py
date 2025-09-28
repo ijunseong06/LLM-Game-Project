@@ -1,3 +1,4 @@
-class Inventory:
-    def __init__(self):
-        pass
+from pydantic import BaseModel
+
+class Inventory(BaseModel):
+    pass
