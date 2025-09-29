@@ -7,7 +7,6 @@ initial_config = {
     "GEMINI_API_KEY": None
 }
 
-#if not os.path.exists(os.path.join(paths.BASE_DIR, 'config.json')):
 if not Path.exists(paths.BASE_PATH / 'config.json'):
     print("config.json is not exists. Create a new file.")
     with open(paths.BASE_PATH / 'config.json', 'w', encoding='utf-8') as f:
