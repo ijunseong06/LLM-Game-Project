@@ -8,9 +8,14 @@ const inputMessage = ref('');
 const outputMessage = ref('');
 
 const confirmInput = async () => {
+  localStorage.setItem('currentInput', inputMessage.value);
   inputMessage.value = '';
-  const response = await axios.post('http://localhost:8000/llm/response/generate');
-  outputMessage.value = response.data['response'];
+  const response = await axios.post('http://localhost:8000/llm/response/generate', null, {
+    params: {
+      input: localStorage.getItem('currentInput')
+    }
+  });
+  outputMessage.value += response.data['response'];
   saveSession();
 }
 
@@ -26,7 +31,7 @@ const saveSession = async () => {
 onMounted(async () => {
   try {
     sessionName.value = localStorage.getItem('sessionName');
-    
+
     const response = await axios.get('http://localhost:8000/session/get');
     outputMessage.value = response.data['history'];
   }

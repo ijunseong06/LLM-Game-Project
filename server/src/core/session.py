@@ -1,9 +1,13 @@
 from pydantic import BaseModel
-from typing import Optional
+from typing import Literal
 
 from src.objects.player import Player
+
+class HistoryEntry(BaseModel):
+    role: Literal['user', 'model']
+    content : str
 
 class Session(BaseModel):
     player : Player = Player()
 
-    history : list[str] = []
+    history : list[HistoryEntry] = []

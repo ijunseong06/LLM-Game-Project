@@ -36,8 +36,6 @@ class SessionRepository:
         try:
             with open(self.save_directory / f'{session_name}' / 'session.json', 'r', encoding='utf-8') as f:
                 data = json.load(f)
-                session.name = data['name']
-                session.description = data['description']
         except FileNotFoundError as e:
             print(str(e))
         except Exception as e:
