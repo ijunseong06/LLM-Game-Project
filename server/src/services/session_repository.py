@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import os
 
 import paths
 from src.core.session import *
@@ -11,6 +12,15 @@ class SessionRepository:
     def init_session(self, session : Session):
         session.player = Player()
         session.history = []
+    
+    def get_session_list(self):
+        file_list = []
+        if not (Path.exists(self.save_directory)):
+            self.save_directory.mkdir()
+        for i in os.listdir(self.save_directory):
+            with open(self.save_directory / Path(i) / 'session.json', 'r', encoding='utf-8') as f:
+                file_list.append(json.load(f))
+        return file_list
 
     def save_session(self, name : str, description : str, session : Session):
         if not (Path.exists(self.save_directory)):
@@ -24,11 +34,11 @@ class SessionRepository:
         }
         try:
             with open(self.save_directory / f'{name}' / 'session.json', 'w', encoding='utf-8') as f:
-                f.write(json.dumps(metadata, indent=2))
+                f.write(json.dumps(metadata, indent=2, ensure_ascii=False))
             with open(self.save_directory / f'{name}' / 'player.json', 'w', encoding='utf-8') as f:
-                f.write(session.model_dump_json(indent=2, include={'player'}))
+                f.write(session.model_dump_json(indent=2, include={'player'}, ensure_ascii=False))
             with open(self.save_directory / f'{name}' / 'chat_history.json', 'w', encoding='utf-8') as f:
-                f.write(session.model_dump_json(indent=2, include={'history'}))
+                f.write(session.model_dump_json(indent=2, include={'history'}, ensure_ascii=False))
         except Exception as e:
             print("error:" + str(e))
 

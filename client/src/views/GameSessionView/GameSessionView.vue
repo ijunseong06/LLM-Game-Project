@@ -22,18 +22,17 @@ const confirmInput = async () => {
 const saveSession = async () => {
   await axios.post('http://localhost:8000/session/save', null, {
     params: {
-      name: sessionName.value,
-      description: localStorage.getItem('sessionDesc')
+      name: JSON.parse(localStorage.getItem('sessionName')),
+      description: JSON.parse(localStorage.getItem('sessionDesc'))
     }
   });
 }
 
 onMounted(async () => {
   try {
-    sessionName.value = localStorage.getItem('sessionName');
-
     const response = await axios.get('http://localhost:8000/session/get');
     outputMessage.value = response.data['history'];
+    sessionName.value = localStorage.getItem('sessionName');
   }
   catch (error) {
     console.error("Failed to fetch session data:", error);

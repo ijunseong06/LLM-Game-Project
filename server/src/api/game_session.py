@@ -10,9 +10,14 @@ router = APIRouter()
 def get_current_session(session : Session = Depends(get_session)):
     return session
 
+@router.get('/get/saves')
+def get_saves(repo : SessionRepository = Depends(get_session_repo)):
+    return repo.get_session_list()
+
 @router.post('/init')
-def create_session(session : Session = Depends(get_session), repo : SessionRepository = Depends(get_session_repo)):
+def create_session(name : str, description : str, session : Session = Depends(get_session), repo : SessionRepository = Depends(get_session_repo)):
     repo.init_session(session)
+    repo.save_session(name=name, description=description, session=session)
 
 @router.post('/save')
 def save_session(name : str, description : str, session : Session = Depends(get_session), repo : SessionRepository = Depends(get_session_repo)):

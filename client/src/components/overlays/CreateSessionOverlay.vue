@@ -7,7 +7,12 @@ const sessionName = ref('');
 const sessionDesc = ref('');
 
 const createSession = async () => {
-    const response = await axios.post('http://localhost:8000/session/init');
+    const response = await axios.post('http://localhost:8000/session/init', null, {
+        params: {
+            "name": sessionName.value,
+            "description": sessionDesc.value
+        }
+    });
     console.log('세션 생성 성공:', response.data)
 }
 
