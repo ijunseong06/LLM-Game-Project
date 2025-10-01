@@ -36,16 +36,18 @@ class SessionRepository:
             with open(self.save_directory / f'{name}' / 'session.json', 'w', encoding='utf-8') as f:
                 f.write(json.dumps(metadata, indent=2, ensure_ascii=False))
             with open(self.save_directory / f'{name}' / 'player.json', 'w', encoding='utf-8') as f:
-                f.write(session.model_dump_json(indent=2, include={'player'}, ensure_ascii=False))
+                f.write(session.model_dump_json(indent=2, include={'player'}))
             with open(self.save_directory / f'{name}' / 'chat_history.json', 'w', encoding='utf-8') as f:
-                f.write(session.model_dump_json(indent=2, include={'history'}, ensure_ascii=False))
+                f.write(session.model_dump_json(indent=2, include={'history'}))
         except Exception as e:
             print("error:" + str(e))
 
     def load_session(self, session_name : str, session : Session):
         try:
-            with open(self.save_directory / f'{session_name}' / 'session.json', 'r', encoding='utf-8') as f:
-                data = json.load(f)
+            with open(self.save_directory / f'{session_name}' / 'chat_history.json', 'r', encoding='utf-8') as f:
+                session.history = json.load(f)['history']
+            with open(self.save_directory / f'{session_name}' / 'player.json', 'r', encoding='utf-8') as f:
+                session.player = json.load(f)['player']
         except FileNotFoundError as e:
             print(str(e))
         except Exception as e:

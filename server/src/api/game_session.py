@@ -24,5 +24,5 @@ def save_session(name : str, description : str, session : Session = Depends(get_
     repo.save_session(name, description, session)
 
 @router.post('/load')
-def load_session(name_to_load : str, session : Session = Depends(get_session), repo : SessionRepository = Depends(get_session_repo)):
-    repo.load_session(name_to_load, session)
+def load_session(name : str, session : Session = Depends(get_session), repo : SessionRepository = Depends(get_session_repo)):
+    repo.load_session(name, session)

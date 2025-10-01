@@ -22,8 +22,8 @@ const confirmInput = async () => {
 const saveSession = async () => {
   await axios.post('http://localhost:8000/session/save', null, {
     params: {
-      name: JSON.parse(localStorage.getItem('sessionName')),
-      description: JSON.parse(localStorage.getItem('sessionDesc'))
+      name: localStorage.getItem('sessionName'),
+      description: localStorage.getItem('sessionDesc')
     }
   });
 }
@@ -31,7 +31,8 @@ const saveSession = async () => {
 onMounted(async () => {
   try {
     const response = await axios.get('http://localhost:8000/session/get');
-    outputMessage.value = response.data['history'];
+    const historyList = response.data['history'];
+    outputMessage.value = historyList.map(item => item.content)
     sessionName.value = localStorage.getItem('sessionName');
   }
   catch (error) {
