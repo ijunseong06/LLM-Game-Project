@@ -3,5 +3,6 @@
     "createSessionNamePlaceholder": "Session Name",
     "createSessionDescPlaceholder": "Description of session",
     "createSessionConfirmButton": "Confirm",
-    "inGameInputField": "Next action"
+    "inGameInputField": "Next action",
+    "sessionDrawerMenu1": "Player"
 }

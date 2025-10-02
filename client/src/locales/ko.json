@@ -3,5 +3,6 @@
     "createSessionNamePlaceholder": "세션 이름",
     "createSessionDescPlaceholder": "세션 설명",
     "createSessionConfirmButton": "확인",
-    "inGameInputField": "다음 행동 입력"
+    "inGameInputField": "다음 행동 입력",
+    "sessionDrawerMenu1": "플레이어"
 }

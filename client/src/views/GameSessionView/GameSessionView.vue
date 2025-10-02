@@ -4,6 +4,8 @@ import axios from "axios";
 
 const sessionName = ref('');
 
+const drawerShow = ref(false);
+
 const inputMessage = ref('');
 const outputMessage = ref('');
 
@@ -43,7 +45,7 @@ onMounted(async () => {
 
 <template>
   <v-app-bar>
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon @click.stop="drawerShow = !drawerShow"></v-app-bar-nav-icon>
     <v-app-bar-title>{{ sessionName }}</v-app-bar-title>
   </v-app-bar>
   <v-main class="d-flex flex-column">
