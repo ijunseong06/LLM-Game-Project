@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import axios from "axios";
+import settingOverlay from "@/components/overlays/SessionSettingOverlay.vue";
 
 const sessionName = ref('');
 
@@ -56,4 +57,15 @@ onMounted(async () => {
       <v-textarea :placeholder="$t('inGameInputField')" variant="outlined" auto-grow rows="1" @keydown.ctrl.enter.prevent="confirmInput" v-model="inputMessage"></v-textarea>
     </v-container>
   </v-main>
+  <v-overlay v-model="drawerShow" class="overlay-style">
+    <setting-overlay @close-overlay="drawerShow = false"></setting-overlay>
+  </v-overlay>
 </template>
+
+<style>
+.overlay-style {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

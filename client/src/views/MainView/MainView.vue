@@ -42,8 +42,7 @@ onMounted(async () => {
   <v-main>
     <v-container class="flex-grow-1 pa-4 d-flex flex-column">
       <v-row v-if="sessionList != null && sessionList.length > 0">
-        <v-col
-          v-for="(session, index) in sessionList" :key="index" cols="12" sm="6" lg="4">
+        <v-col v-for="(session, index) in sessionList" :key="index" cols="12" sm="6" lg="4">
           <v-card height="100%" @click="loadSession(index)">
             <v-card-title>{{ session['name'] }}</v-card-title>
             <v-card-text>{{ session['description'] }}</v-card-text>
