@@ -45,9 +45,9 @@ class SessionRepository:
     def load_session(self, session_name : str, session : Session):
         try:
             with open(self.save_directory / f'{session_name}' / 'chat_history.json', 'r', encoding='utf-8') as f:
-                session.history = json.load(f)['history']
+                session.history = [HistoryEntry.model_validate(i) for i in json.load(f)['history']]
             with open(self.save_directory / f'{session_name}' / 'player.json', 'r', encoding='utf-8') as f:
-                session.player = json.load(f)['player']
+                session.player = Player.model_validate(json.load(f)['player'])
         except FileNotFoundError as e:
             print(str(e))
         except Exception as e:
