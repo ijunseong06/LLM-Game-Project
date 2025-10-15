@@ -4,5 +4,13 @@
     "createSessionDescPlaceholder": "Description of session",
     "createSessionConfirmButton": "Confirm",
     "inGameInputField": "Next action",
-    "sessionSettingTitle": "Session Settings"
+    "sessionSettingSave": "Save",
+    "sessionSettingTitle": "Session Settings",
+    "sessionSettingPlayerHeader": "Player",
+    "sessionSettingPlayerSubheader": "Player Settings",
+    "sessionSettingPlayerName": "Name",
+    "sessionSettingPlayerGender": "Gender",
+    "sessionSettingPlayerAge": "Age",
+    "sessionSettingPlayerRace": "Race",
+    "sessionSettingPlayerAppearence": "Appearence"
 }

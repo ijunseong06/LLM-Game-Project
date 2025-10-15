@@ -4,5 +4,13 @@
     "createSessionDescPlaceholder": "세션 설명",
     "createSessionConfirmButton": "확인",
     "inGameInputField": "다음 행동 입력",
-    "sessionSettingTitle": "세션 설정"
+    "sessionSettingSave": "저장",
+    "sessionSettingTitle": "세션 설정",
+    "sessionSettingPlayerHeader": "플레이어",
+    "sessionSettingPlayerSubheader": "플레이어 설정",
+    "sessionSettingPlayerName": "이름",
+    "sessionSettingPlayerGender": "성별",
+    "sessionSettingPlayerAge": "나이",
+    "sessionSettingPlayerRace": "종족",
+    "sessionSettingPlayerAppearence": "외모"
 }
