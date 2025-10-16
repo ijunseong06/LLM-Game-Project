@@ -23,6 +23,14 @@ def create_session(name : str, description : str, session : Session = Depends(ge
 def save_session(name : str, description : str, session : Session = Depends(get_session), repo : SessionRepository = Depends(get_session_repo)):
     repo.save_session(name, description, session)
 
+@router.post('/save/player')
+def save_player(name : str, gender : str, age : int, race : str, appearence : str, session : Session = Depends(get_session), repo : SessionRepository = Depends(get_session_repo)):
+    session.player.name = name
+    session.player.gender = gender
+    session.player.age = age
+    session.player.race = race
+    session.player.appearence = appearence
+
 @router.post('/load')
 def load_session(name : str, session : Session = Depends(get_session), repo : SessionRepository = Depends(get_session_repo)):
     repo.load_session(name, session)

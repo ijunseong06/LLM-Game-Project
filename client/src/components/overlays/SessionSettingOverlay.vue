@@ -1,20 +1,30 @@
 <script setup>
 import { onMounted, ref } from "vue";
+import axios from "axios";
 
 const currentSetting = ref('player');
 
 const playerName = ref('');
 const playerGender = ref('');
-const playerAge = ref('');
+const playerAge = ref(0);
 const playerRace = ref('');
 const playerAppearence = ref('');
 
-const saveSettings = () => {
+const saveSettings = async () => {
   localStorage.setItem('playerName', playerName.value);
   localStorage.setItem('playerGender', playerGender.value);
   localStorage.setItem('playerAge', playerAge.value);
   localStorage.setItem('playerRace', playerRace.value);
   localStorage.setItem('playerAppearence', playerAppearence.value);
+  await axios.post('http://localhost:8000/session/save/player', null, {
+    params: {
+      name: localStorage.getItem('playerName'),
+      gender: localStorage.getItem('playerGender'),
+      age: localStorage.getItem('playerAge'),
+      race: localStorage.getItem('playerRace'),
+      appearence: localStorage.getItem('playerAppearence')
+    }
+  });
 };
 
 onMounted(async () => {
