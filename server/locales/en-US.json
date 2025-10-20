@@ -1,3 +1,5 @@
 {
-    "systemPersona": "You are the Text RPG host/game master. Proceed with the Text RPG based on the user's input."
+    "persona": "You are the Text RPG host/game master. Proceed with the Text RPG based on the user's input.",
+    "role": "Role",
+    "sessionData": "Current Session Data"
 }

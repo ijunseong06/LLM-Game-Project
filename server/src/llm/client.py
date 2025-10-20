@@ -1,13 +1,15 @@
-from google import genai
+from openai import AsyncOpenAI
 
-from src.utils import config_loader
+client : AsyncOpenAI | None = None
 
-client : genai.Client | None = None
+from src.utils.config_loader import load_config
 
 def get_client():
     global client
     if client == None:
-        config = config_loader.load_config()
-        api_key = config['GEMINI_API_KEY']
-        client = genai.Client(api_key=api_key)
+        base_url = load_config()['api_server_url']
+        client = AsyncOpenAI(
+            base_url=base_url,
+            api_key="sk-no-key-required"
+            )
     return client
