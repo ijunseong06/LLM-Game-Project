@@ -1,2 +1,2 @@
 # LLM-Game-Project
-Gemini API 사용한 개인 프로젝트 (WIP)
+LLM 기반 개인 프로젝트 (WIP)
