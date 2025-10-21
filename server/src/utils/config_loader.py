@@ -4,7 +4,8 @@ import json
 import paths
 
 initial_config = {
-    "GEMINI_API_KEY": None
+    "api_server_url": "",
+    "model_name": ""
 }
 
 if not Path.exists(paths.BASE_PATH / 'config.json'):
