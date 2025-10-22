@@ -12,5 +12,8 @@
     "sessionSettingPlayerGender": "성별",
     "sessionSettingPlayerAge": "나이",
     "sessionSettingPlayerRace": "종족",
-    "sessionSettingPlayerAppearence": "외모"
+    "sessionSettingPlayerAppearence": "외모",
+    "sessionSettingPlayerPersonality": "성격",
+    "sessionSettingPlayerBackground": "배경",
+    "sessionSettingPlayerNote": "지침"
 }

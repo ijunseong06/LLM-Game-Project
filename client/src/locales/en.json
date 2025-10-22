@@ -12,5 +12,8 @@
     "sessionSettingPlayerGender": "Gender",
     "sessionSettingPlayerAge": "Age",
     "sessionSettingPlayerRace": "Race",
-    "sessionSettingPlayerAppearence": "Appearence"
+    "sessionSettingPlayerAppearence": "Appearence",
+    "sessionSettingPlayerPersonality": "Personality",
+    "sessionSettingPlayerBackground": "Background",
+    "sessionSettingPlayerNote": "Note"
 }
