@@ -1,19 +1,20 @@
-<script setup>
-import { onMounted, ref } from "vue";
+<script setup lang="ts">
+import { onMounted, ref, Ref } from "vue";
 import axios from "axios";
 
 const currentSetting = ref('player');
 
-const playerName = ref('');
-const playerGender = ref('');
-const playerAge = ref(0);
-const playerRace = ref('');
-const playerAppearence = ref('');
-const playerPersonality = ref('');
-const playerBackground = ref('');
-const playerNote = ref('');
+const playerName : Ref<string> = ref('');
+const playerGender : Ref<string> = ref('');
+const playerAge : Ref<string> = ref('');
+const playerRace : Ref<string> = ref('');
+const playerAppearence : Ref<string> = ref('');
+const playerPersonality : Ref<string> = ref('');
+const playerBackground : Ref<string> = ref('');
+const playerNote : Ref<string> = ref('');
 
-const statsList = ref([''])
+const statsListText : Ref<string> = ref('');
+const statsList : Ref<string[]> = ref(['']);
 
 const saveSettings = async () => {
   localStorage.setItem('playerName', playerName.value);
@@ -24,6 +25,10 @@ const saveSettings = async () => {
   localStorage.setItem('playerPersonality', playerPersonality.value);
   localStorage.setItem('playerBackground', playerBackground.value);
   localStorage.setItem('playerNote', playerNote.value);
+
+  statsList.value = await statsToList();
+  localStorage.setItem('statsList', JSON.stringify(statsList.value));
+
   await axios.post('http://localhost:8000/session/save/player', null, {
     params: {
       name: localStorage.getItem('playerName'),
@@ -38,12 +43,21 @@ const saveSettings = async () => {
   });
 };
 
+const statsToList = async () : Promise<string[]> => {
+  return statsListText.value.split(',').map(item => item.trim()).filter(item => item.length > 0);
+}
+
 onMounted(async () => {
   playerName.value = localStorage.getItem('playerName') || '';
   playerGender.value = localStorage.getItem('playerGender') || '';
   playerAge.value = localStorage.getItem('playerAge') || '';
   playerRace.value = localStorage.getItem('playerRace') || '';
   playerAppearence.value = localStorage.getItem('playerAppearence') || '';
+  playerPersonality.value = localStorage.getItem('playerPersonality') || '';
+  playerBackground.value = localStorage.getItem('playerBackground') || '';
+  playerNote.value = localStorage.getItem('playerNote') || '';
+
+  statsList.value = JSON.parse(localStorage.getItem('statsList')) || [''];
 });
 </script>
 
@@ -82,7 +96,8 @@ onMounted(async () => {
           <v-textarea :label="$t('sessionSettingPlayerNote')" variant="outlined" style="max-width: 400px;" v-model="playerNote" auto-grow rows="1"></v-textarea>
         </div>
         <div v-if="currentSetting === 'general'">
-          <h3 class="mb-4">{{ $t('sessionSettingGeneralSubheader') }}</h3>
+          <h3 class="mb-4">{{ $t('sessionSettingGeneralHeader') }}</h3>
+          <v-textarea :label="$t('sessionSettingGeneralStatsList')" variant="outlined" v-model="statsListText" style="max-width: 400px;" auto-grow rows="1"></v-textarea>
         </div>
         
         <div v-else>

@@ -15,5 +15,7 @@
     "sessionSettingPlayerAppearence": "외모",
     "sessionSettingPlayerPersonality": "성격",
     "sessionSettingPlayerBackground": "배경",
-    "sessionSettingPlayerNote": "지침"
+    "sessionSettingPlayerNote": "지침",
+    "sessionSettingGeneralHeader" : "일반",
+    "sessionSettingGeneralStatsList": "능력치 종류"
 }

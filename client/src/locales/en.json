@@ -15,5 +15,7 @@
     "sessionSettingPlayerAppearence": "Appearence",
     "sessionSettingPlayerPersonality": "Personality",
     "sessionSettingPlayerBackground": "Background",
-    "sessionSettingPlayerNote": "Note"
+    "sessionSettingPlayerNote": "Note",
+    "sessionSettingGeneralHeader" : "General",
+    "sessionSettingGeneralStatsList": "Stats Types"
 }

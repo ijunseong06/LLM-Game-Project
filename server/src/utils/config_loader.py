@@ -4,6 +4,7 @@ import json
 import paths
 
 initial_config = {
+    "lang": "",
     "api_server_url": "",
     "model_name": ""
 }

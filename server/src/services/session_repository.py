@@ -18,8 +18,11 @@ class SessionRepository:
         if not (Path.exists(self.save_directory)):
             self.save_directory.mkdir()
         for i in os.listdir(self.save_directory):
-            with open(self.save_directory / Path(i) / 'session.json', 'r', encoding='utf-8') as f:
-                file_list.append(json.load(f))
+            try:
+                with open(self.save_directory / Path(i) / 'session.json', 'r', encoding='utf-8') as f:
+                    file_list.append(json.load(f))
+            except:
+                continue
         return file_list
 
     def save_session(self, name : str, description : str, session : Session):
