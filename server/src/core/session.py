@@ -8,6 +8,8 @@ class HistoryEntry(BaseModel):
     content : str
 
 class Session(BaseModel):
+    statsKeyList : list[str] = []
+
     player : Player = Player()
 
     history : list[HistoryEntry] = []

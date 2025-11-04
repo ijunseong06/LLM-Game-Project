@@ -29,7 +29,7 @@ const saveSettings = async () => {
   statsList.value = await statsToList();
   localStorage.setItem('statsList', JSON.stringify(statsList.value));
 
-  await axios.post('http://localhost:8000/session/save/player', null, {
+  await axios.post('http://localhost:8000/session/setting/player', null, {
     params: {
       name: localStorage.getItem('playerName'),
       gender: localStorage.getItem('playerGender'),
@@ -39,6 +39,11 @@ const saveSettings = async () => {
       personality: localStorage.getItem('playerPersonality'),
       background: localStorage.getItem('playerBackground'),
       note: localStorage.getItem('playerNote')
+    }
+  });
+  await axios.post('http://localhost:8000/session/setting/general', null, {
+    params: {
+      stats: localStorage.getItem('statsList')
     }
   });
 };
